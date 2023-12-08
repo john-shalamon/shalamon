@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "title": "Data Structures",
+        "image": "https://th.bing.com/th/id/OIP.h375ZjjMwjbRvJLpdmOZQAHaLO",
+        "rate": 300
+    },
+    {
+        "id": 2,
+        "title": "Object Oriented Programming Language",
+        "image": "https://example.com/oop.jpg",
+        "rate": 250
+    },
+    {
+        "id": 3,
+        "title": "Lab Manual",
+        "image": "https://example.com/lab-manual.jpg",
+        "rate": 250
+    },
+    {
+        "id": 2,
+        "title": "Object Oriented Programming Language",
+        "image": "https://example.com/oop.jpg",
+        "rate": 250
+    },
+    {
+        "id": 2,
+        "title": "Object Oriented Programming Language",
+        "image": "https://example.com/oop.jpg",
+        "rate": 250
+    },
+    {
+        "id": 2,
+        "title": "Object Oriented Programming Language",
+        "image": "https://example.com/oop.jpg",
+        "rate": 250
+    },
+    {
+        "id": 2,
+        "title": "Object Oriented Programming Language",
+        "image": "https://example.com/oop.jpg",
+        "rate": 250
+    },
+    {
+        "id": 3,
+        "title": "Lab Manual",
+        "image": "https://example.com/lab-manual.jpg",
+        "rate": 250
+    }
+
+]

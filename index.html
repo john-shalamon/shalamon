@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">Book Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="drawer-icon" onclick="toggleDrawer()">☰</div>
+            <div class="logo"> JS Book Store</div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Search Bar -->
+        <div id="search-bar">
+            <label for="search">Search:</label>
+            <input type="text" id="search" oninput="filterBooks()" placeholder="Enter book title">
+        </div>
+
+        <div id="book-list">
+            <!-- Books will be dynamically added here -->
+        </div>
+
+        <div id="order-form" style="display: none;">
+            <h2>Order Details</h2>
+            <form id="order-details-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required><br>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" required>
+                    <option value="cash-on-delivery">Cash on Delivery</option>
+                    <option value="paytm">Paytm</option>
+                </select><br>
+
+                <button type="button" onclick="placeOrder()">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+</html>
