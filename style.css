@@ -1,14 +1,20 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: url("https://wallpaperboat.com/wp-content/uploads/2020/09/14/54601/books-05.jpg") center center no-repeat;
+    background-size: cover;
+}
 
-
+/* Header Styles */
 header {
     background-color: #333;
     color: white;
     padding: 10px;
-   
     display: flex;
-    
     align-items: center;
-    
 }
 
 .header-container {
@@ -17,20 +23,16 @@ header {
 }
 
 .logo {
-    font-size: 50px;
-    height:100px;
+    font-size: 30px;
     font-weight: bold;
-    margin-left:480px;
-    margin-top:35px;
-
+    margin-left: 20px;
 }
 
 .drawer-icon {
-    font-size: 60px;
+    font-size: 30px;
     cursor: pointer;
-    justify-content:flex-start;
-    
-   
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .drawer {
@@ -38,40 +40,32 @@ header {
     flex-direction: column;
     position: absolute;
     top: 60px;
-    justify-content:flex-start;
+    left: 0;
     background-color: #B8B8B8;
     padding: 5px;
     z-index: 1;
-    text-align:center;
-    width:250px;
-    height:400px;
-    justify-content:space-evenly;
-
+    text-align: center;
+    width: 100%;
 }
 
 .drawer-item {
-    color:#333;
+    color: #333;
     padding: 10px;
-    font-size:20px;
+    font-size: 20px;
     cursor: pointer;
 }
 
+/* Main Content Styles */
 .main-content {
     padding: 20px;
-}
-/* styles.css */
-
-body {
-    width: 1500px;
-            height: 1200px;
-            background: url("https://th.bing.com/th/id/OIP.05V0zIDDDlEe0jUzG0AbGwHaFj?")center center no-repeat;
-            background-size: cover;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
     color: #333;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #search-bar {
@@ -81,15 +75,14 @@ h1 {
 
 #search {
     padding: 10px;
-    width: 60%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #book-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .book-entry {
@@ -98,8 +91,9 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 10px;
-    width: 150px;
+    width: calc(33.33% - 40px);
     text-align: center;
+    box-sizing: border-box;
 }
 
 .book-entry img {
@@ -113,9 +107,9 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 20px;
-    width: 300px;
+    width: 100%;
     text-align: center;
-    display: none;
+    box-sizing: border-box;
 }
 
 #order-details-form {
@@ -142,11 +136,30 @@ button {
 button:hover {
     background-color: #45a049;
 }
-title{
-    justify-content:center;
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .drawer-icon {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .drawer {
+        width: 100%;
+    }
+
+    .book-entry {
+        width: calc(50% - 40px);
+    }
 }
 
-/* Add more styles as needed */
-a{
-    text-decoration: none;
+@media screen and (max-width: 480px) {
+    .book-entry {
+        width: 100%;
+    }
 }
