@@ -6,6 +6,7 @@ body {
     line-height: 1.6;
     background: url("https://wallpaperboat.com/wp-content/uploads/2020/09/14/54601/books-05.jpg") center center no-repeat;
     background-size: cover;
+    
 }
 
 /* Header Styles */
@@ -163,3 +164,6 @@ button:hover {
         width: 100%;
     }
 }
+
+
+

@@ -22,8 +22,18 @@ async function displayBooks() {
             <img src="${book.image}">
             <h3>${book.title}</h3>
             <p>Rate: Rs ${book.rate}</p>
+            <p class="description" style="display:none;">${book.description}</p>
             <button onclick="showOrderForm(${book.id})">Order</button>
         `;
+
+        // Add event listeners for each book entry
+        bookEntry.addEventListener('mouseover', () => {
+            bookEntry.querySelector('.description').style.display = 'block';
+        });
+
+        bookEntry.addEventListener('mouseout', () => {
+            bookEntry.querySelector('.description').style.display = 'none';
+        });
 
         bookList.appendChild(bookEntry);
     });
@@ -46,7 +56,6 @@ function filterBooks() {
 function showOrderForm(bookId) {
     // Placeholder function, you can redirect or display a modal as needed
     window.location.href = `studententry.html?bookId=${bookId}`;
-    console.log('Order form for Book ID:', bookId);
 }
 
 // Call displayBooks to show books on page load
