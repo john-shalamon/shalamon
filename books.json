@@ -52,25 +52,25 @@
     {
         "id": 6,
         "title": "Heritage Of Tamil",
-        "image": "./assests/img/tamil.jpg",
+        "image": "./assests/img/python.jpg",
+        "rate": 250
+    },
+    {
+        "id": 6,
+        "title": "discrete Mathematics",
+        "image": "./assests/img/m3.jpg",
         "rate": 250
     },
     {
         "id": 6,
         "title": "Heritage Of Tamil",
-        "image": "./assests/img/tamil.jpg",
+        "image": "./assests/img/ph2.jpg",
         "rate": 250
     },
     {
         "id": 6,
         "title": "Heritage Of Tamil",
-        "image": "./assests/img/tamil.jpg",
-        "rate": 250
-    },
-    {
-        "id": 6,
-        "title": "Heritage Of Tamil",
-        "image": "./assests/img/tamil.jpg",
+        "image": "./assests/img/c.jpg",
         "rate": 250
     }
 ]

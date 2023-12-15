@@ -118,13 +118,7 @@ h1 {
     text-align: left;
 }
 
-input,
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-}
+
 
 button {
     background-color: #4caf50;
