@@ -1,61 +1,70 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sqlite3 = require('sqlite3').verbose();
+const excel = require('exceljs');
+const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const port = 3001;
+const excelFilePath = 'orders.xlsx';
 
+// Middleware to enable CORS
+app.use(cors());
+
+// Middleware to parse JSON
 app.use(bodyParser.json());
 
-// SQLite database setup
-const db = new sqlite3.Database('orders.db', (err) => {
-    if (err) {
-        console.error('Error opening database:', err.message);
-    } else {
-        console.log('Connected to the database');
-        // Create orders table if not exists
-        db.run(`
-            CREATE TABLE IF NOT EXISTS orders (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                bookId INTEGER,
-                name TEXT,
-                phone TEXT,
-                department TEXT,
-                academicYear INTEGER,
-                paymentMethod TEXT
-            )
-        `);
-    }
-});
+// Create or load the Excel workbook and worksheet
+let workbook = new excel.Workbook();
+let worksheet;
 
-// Endpoint to handle order placement
+// Check if the Excel file exists
+if (fs.existsSync(excelFilePath)) {
+    // If the file exists, load the existing workbook and worksheet
+    workbook.xlsx.readFile(excelFilePath)
+        .then(() => {
+            worksheet = workbook.getWorksheet(1);
+            console.log('Existing Excel file loaded.');
+        })
+        .catch(error => {
+            console.error('Error loading Excel file:', error);
+        });
+} else {
+    // If the file doesn't exist, create a new workbook and worksheet
+    worksheet = workbook.addWorksheet('Orders');
+    worksheet.addRow(['Book ID', 'Name', 'Phone', 'Department', 'Academic Year', 'Payment Method']);
+    console.log('New Excel file created.');
+}
+
+// Endpoint to handle the order placement
 app.post('/place-order', (req, res) => {
     const orderDetails = req.body;
+    
+    // Add a new row with order details to the worksheet
+    worksheet.addRow([
+        orderDetails.bookId,
+        orderDetails.name,
+        orderDetails.phone,
+        orderDetails.department,
+        orderDetails.academicYear,
+        orderDetails.paymentMethod
+    ]);
 
-    // Validate and store orderDetails in the database
-    db.run(
-        `INSERT INTO orders (bookId, name, phone, department, academicYear, paymentMethod)
-         VALUES (?, ?, ?, ?, ?, ?)`,
-        [
-            orderDetails.bookId,
-            orderDetails.name,
-            orderDetails.phone,
-            orderDetails.department,
-            orderDetails.academicYear,
-            orderDetails.paymentMethod
-        ],
-        function (err) {
-            if (err) {
-                console.error('Error inserting order into the database:', err.message);
-                res.status(500).json({ error: 'Internal Server Error' });
-            } else {
-                console.log('Order inserted into the database with ID:', this.lastID);
-                res.json({ message: 'Order received successfully' });
-            }
-        }
-    );
+    // Save the workbook to the Excel file
+    workbook.xlsx.writeFile(excelFilePath)
+        .then(() => {
+            console.log('Order details written to Excel file.');
+            // Respond with a success message
+            res.json({ status: 'success', message: 'Order placed successfully.' });
+        })
+        .catch(error => {
+            console.error('Error writing to Excel file:', error);
+            // Respond with an error message
+            res.status(500).json({ status: 'error', message: 'Failed to place the order.' });
+        });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running at http://127.0.0.1:${port}`);
 });

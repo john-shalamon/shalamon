@@ -22,7 +22,7 @@ async function displayBooks() {
             <img src="${book.image}">
             <h3>${book.title}</h3>
             <p>Rate: Rs ${book.rate}</p>
-            <p class="description" style="display:none;">${book.description}</p>
+            
             <button onclick="showOrderForm(${book.id})">Order</button>
         `;
 
