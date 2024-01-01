@@ -68,10 +68,12 @@ h1 {
     text-align: center;
     color: #333;
     margin-top: 50px;
+    
 }
 
 #search-bar {
     text-align: center;
+    
     margin-bottom: 20px;
 }
 
@@ -79,6 +81,7 @@ h1 {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
+
 }
 
 #book-list {

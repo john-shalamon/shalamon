@@ -20,8 +20,9 @@ async function displayBooks() {
 
         bookEntry.innerHTML = `
             <img src="${book.image}">
-            <h3>${book.title}</h3>
-            <p>Rate: Rs ${book.rate}</p>
+            <h2>${book.title}</h2>
+            <h3>Rate: Rs ${book.rate}</h3>
+            <h4>Stack:${book.stack}</h4>
             
             <button onclick="showOrderForm(${book.id})">Order</button>
         `;
