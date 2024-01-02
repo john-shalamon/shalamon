@@ -39,7 +39,7 @@ if (fs.existsSync(excelFilePath)) {
 // Endpoint to handle the order placement
 app.post('/place-order', (req, res) => {
     const orderDetails = req.body;
-    
+
     // Add a new row with order details to the worksheet
     worksheet.addRow([
         orderDetails.bookId,
@@ -64,7 +64,21 @@ app.post('/place-order', (req, res) => {
         });
 });
 
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
+// Default route for the index.html file
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
+// Default route for the studententry.html file
+app.get('/studententry', (req, res) => {
+    res.sendFile(__dirname + '/public/studententry.html');
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running at http://127.0.0.1:${port}`);
 });
+
