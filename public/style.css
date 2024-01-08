@@ -91,19 +91,28 @@ h1 {
 }
 
 .book-entry {
-    background-color: #ffffff;
+    background-color: hwb(0 90% 8%);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px #160a0a1a;
     margin: 20px;
     padding: 10px;
     width: calc(33.33% - 40px);
     text-align: center;
     box-sizing: border-box;
+    transition: box-shadow 0.3s ease; /* Add transition for smooth animation */
 }
 
+.book-entry:hover {
+    box-shadow: 0 0 20px #202020d3; /* Add a subtle shadow on hover */
+    transform: scale(1.05); /* Enlarge the element on hover for a 3D effect */
+}
+
+
+
 .book-entry img {
-    max-width: 100%;
-    border-radius: 4px;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
 }
 
 #order-form {
