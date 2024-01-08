@@ -20,22 +20,15 @@ async function displayBooks() {
 
         bookEntry.innerHTML = `
             <img src="${book.image}">
-            <h2>${book.title}</h2>
-            <h3>Rate: Rs ${book.rate}</h3>
-            <h4>Stack:${book.stack}</h4>
+            <h3>${book.title}</h3>
+            <p>Rate: Rs ${book.rate}</p>
+            <p>Stock: ${book.stack}</p>
             
             <button onclick="showOrderForm(${book.id})">Order</button>
         `;
 
         // Add event listeners for each book entry
-        bookEntry.addEventListener('mouseover', () => {
-            bookEntry.querySelector('.description').style.display = 'block';
-        });
-
-        bookEntry.addEventListener('mouseout', () => {
-            bookEntry.querySelector('.description').style.display = 'none';
-        });
-
+    
         bookList.appendChild(bookEntry);
     });
 }

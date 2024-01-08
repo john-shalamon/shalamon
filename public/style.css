@@ -4,13 +4,32 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color:#92a1cf   
-    
+    background-color:hwb(180 46% 35% / 0.596);
 }
 
 /* Header Styles */
 header {
-    background-color: #333;
+
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: hwb(180 7% 93%);
+    color: white;
+    height: 90px;
+    
+}
+
+.logo {
+   
+    font-size: 30px;
+    font-weight: bold;
+    
+    background-color: hwb(180 7% 93%);
     color: white;
     justify-content:center;
     display: flex;
@@ -18,23 +37,11 @@ header {
     height:90px;
 }
 
-
-.header-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 20px;
-}
-
 .drawer-icon {
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
     margin-left: 1px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .drawer {
@@ -110,8 +117,9 @@ h1 {
 
 
 .book-entry img {
-    width: 100%;
-    height: 250px;
+    max-width: 100%;
+    height: 452px;;
+    
     border-radius: 10px;
 }
 

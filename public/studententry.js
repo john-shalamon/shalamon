@@ -70,4 +70,4 @@ document.addEventListener('DOMContentLoaded', function () {
             // Handle error scenario
         });
     }
-});
+})
